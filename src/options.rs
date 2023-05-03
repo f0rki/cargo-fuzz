@@ -90,6 +90,9 @@ pub struct BuildOptions {
     /// defaults to false.
     pub build_std: Option<bool>,
 
+    #[arg(short, long = "careful")]
+    pub careful_mode: bool,
+
     #[arg(long = "target", default_value(crate::utils::default_target()))]
     /// Target triple of the fuzz target
     pub triple: String,
