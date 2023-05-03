@@ -157,7 +157,11 @@ impl FuzzProject {
             cmd.arg("-Z").arg(flag);
         }
 
-        if (matches!(build.sanitizer, Sanitizer::Memory) || build.build_std.unwrap_or(true) || build.careful_mode) && !build.coverage {
+        if (matches!(build.sanitizer, Sanitizer::Memory)
+            || build.build_std.unwrap_or(false)
+            || build.careful_mode)
+            && !build.coverage
+        {
             cmd.arg("-Z").arg("build-std");
         }
 
